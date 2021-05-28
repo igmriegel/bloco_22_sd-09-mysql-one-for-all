@@ -15,13 +15,6 @@ jobs:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - name: Wait for build to succeed
-        uses: betrybe/action-wait-for-check@v2
-        id: wait-for-build
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: codeclimate
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/checkout@v2
         if: steps.wait-for-build.outputs.conclusion == 'success'
       - name: Evaluator Step
