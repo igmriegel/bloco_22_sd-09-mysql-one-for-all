@@ -16,11 +16,9 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
-        if: steps.wait-for-build.outputs.conclusion == 'success'
       - name: Evaluator Step
         uses: betrybe/jest-evaluator-action@v7
         id: evaluator
-        if: steps.wait-for-build.outputs.conclusion == 'success'
         with:
           repository-test-name: 'betrybe/sd-0x-mysql-one-for-all-tests'
           repository-test-branch: 'master'
@@ -30,7 +28,6 @@ jobs:
           HOSTNAME: 'mysql'
       - name: Store evaluation step
         uses: betrybe/store-evaluation-action@v2
-        if: steps.wait-for-build.outputs.conclusion == 'success'
         with:
           evaluation-data: ${{ steps.evaluator.outputs.result }}
           environment: production
