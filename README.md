@@ -83,8 +83,8 @@ Normalize uma tabela na terceira forma normal e acesse as informações desta ta
 
 ## Data de Entrega
 
-  - Serão `X` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+  - Será `1` dia de projeto.
+  - Data de entrega para avaliação final do projeto: `04/06/2021 - 14:00h`.
 
 ---
 
@@ -228,7 +228,7 @@ Algumas coisas devem seguir um padrão pré-estabelecido para que os testes de c
 
 2. **Todos** os desafios que pedirem para criar uma view **devem** possuir no seu arquivo `.sql` correspondente **somente** a query para a criação da view.
 
-3. Para executar localmente os testes, é preciso escrever o seguinte no seu terminal:
+3. Para executar localmente os testes, é preciso ter as dependências instaladas via `npm i` e escrever o seguinte no seu terminal:
     ```sh
     MYSQL_USER=<SEU_NOME_DE_PESSOA_USUARIA> MYSQL_PASSWORD=<SUA SENHA> HOSTNAME=<NOME_DO_HOST> npm test
     ```
