@@ -46,10 +46,9 @@ CREATE TABLE users (
 )  ENGINE=INNODB;
 
 CREATE TABLE followed_artists (
-    id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id SMALLINT UNSIGNED NOT NULL,
     artist_id SMALLINT UNSIGNED NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (user_id, artist_id),
     FOREIGN KEY (artist_id)
         REFERENCES artists (artist_id),
     FOREIGN KEY (user_id)
@@ -57,10 +56,9 @@ CREATE TABLE followed_artists (
 )  ENGINE=INNODB;
 
 CREATE TABLE reprodution_history (
-    id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id SMALLINT UNSIGNED NOT NULL,
     music_id SMALLINT UNSIGNED NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (user_id, music_id),
     FOREIGN KEY (music_id)
         REFERENCES musics (music_id),
     FOREIGN KEY (user_id)
@@ -111,28 +109,28 @@ VALUES ('1','Thati','23','1'),
 ('3','Bill','20','3'),
 ('4','Roger','45','1');
 
-INSERT INTO `followed_artists` (id, user_id, artist_id)
-VALUES ('1','1','1'),
-('2','1','4'),
-('3','1','3'),
-('4','2','1'),
-('5','2','3'),
-('6','3','2'),
-('7','3','1'),
-('8','4','4');
+INSERT INTO `followed_artists` (user_id, artist_id)
+VALUES ('1','1'),
+('1','4'),
+('1','3'),
+('2','1'),
+('2','3'),
+('3','2'),
+('3','1'),
+('4','4');
 
-INSERT INTO `reprodution_history` (id, user_id, music_id)
-VALUES ('1','1','1'),
-('2','1','6'),
-('3','1','14'),
-('4','1','16'),
-('5','2','13'),
-('6','2','17'),
-('7','2','2'),
-('8','2','15'),
-('9','3','4'),
-('10','3','16'),
-('11','3','6'),
-('12','4','3'),
-('13','4','18'),
-('14','4','11');
+INSERT INTO `reprodution_history` (user_id, music_id)
+VALUES ('1','1'),
+('1','6'),
+('1','14'),
+('1','16'),
+('2','13'),
+('2','17'),
+('2','2'),
+('2','15'),
+('3','4'),
+('3','16'),
+('3','6'),
+('4','3'),
+('4','18'),
+('4','11');
