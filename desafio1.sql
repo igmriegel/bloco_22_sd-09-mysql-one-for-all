@@ -31,7 +31,7 @@ CREATE TABLE musics (
 CREATE TABLE plans (
     plan_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     plan VARCHAR(50) NOT NULL,
-    plan_price FLOAT NOT NULL,
+    plan_price DECIMAL(10,2) NOT NULL,
     PRIMARY KEY (plan_id)
 )  ENGINE=INNODB;
 
@@ -101,7 +101,7 @@ VALUES ('1','Soul For Us','1'),
 INSERT INTO `plans` (plan_id, plan, plan_price)
 VALUES ('1','gratuito','0.00'),
 ('2','familiar','7.99'),
-('3','universitário','599');
+('3','universitário','5.99');
 
 INSERT INTO `users` (user_id, user_name, age, plan_id)
 VALUES ('1','Thati','23','1'),
